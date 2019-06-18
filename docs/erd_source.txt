@@ -1,0 +1,45 @@
+Table users {
+  user_id int [pk]
+  first_name varchar [not null]
+  last_name varchar [not null]
+  gender varchar(1) [not null]
+  level varchar
+}
+
+Table artists {
+  artist_id varchar [pk]
+  name varchar [not null]
+  location varchar
+  latitude numeric
+  longitude numeric
+}
+
+Table songs {
+  song_id varchar [pk]
+  title varchar [not null]
+  artist_id varchar [not null, ref: > artists.artist_id]
+  year int
+  duration int [not null]
+}
+
+Table time {
+  start_time bigint [pk]
+  hour int [not null]
+  day int [not null]
+  week int [not null]
+  month int [not null]
+  year int [not null]
+  weekday int [not null]
+}
+
+Table songplay {
+  songplay_id bigserial [pk]
+  start_time bigint [not null, ref: > time.start_time]
+  user_id int [not null, ref: > users.user_id]
+  level varchar [not null]
+  song_id varchar [ref: > songs.song_id]
+  artist_id varchar [ref: > artists.artist_id]
+  session_id int [not null]
+  location varchar
+  user_agent varchar
+}

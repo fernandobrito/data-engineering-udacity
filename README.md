@@ -19,10 +19,10 @@ Contact me on [Linkedin](https://www.linkedin.com/in/fernandosmbrito), or open a
 ### Implemented by my own
 
 * E-R diagram: using online tool (https://dbdiagram.io/d/)
-* Timing functions: to allow benchmarking
-* Bash script: to allow log saving and automate execuation of multiple scripts
-* Extra Jupyter notebook with visualizations
-* Python dependencies file
+* Timing functions: Python function annotations allows easy benchmarking
+* Bash script: allows log saving and automate execution of multiple scripts
+* Extra Jupyter notebook with visualizations: allows data exploration
+* Python dependencies file: allows easy installation
 
 Test time with load (1s for songs, 11.5s for events)
 
@@ -35,11 +35,11 @@ Test time with load (1s for songs, 11.5s for events)
 
 
 ## Technology Stack
-* Python 3
-* Pandas
-* Jupyter notebooks
-* Plotly charts
-* Postgres
+* [Python](https://www.python.org/)
+* [pandas](https://pandas.pydata.org/)
+* [Jupyter notebook](https://jupyter.org/)
+* [Plotly charts for Python](https://plot.ly/python/)
+* [PostgreSQL](https://www.postgresql.org/)
 
 ## Instructions
 
@@ -50,7 +50,7 @@ Install all necessary modules to run the current project:
 ```bash
 $ git clone https://github.com/fernandobrito/reactnd-project-flashcards
 $ cd reactnd-project-flashcards/
-$ pip3 install
+$ pip3 install -r requirements.txt
 ```
 
 ### Execution
@@ -66,23 +66,39 @@ Run ETL:
 $ python3 etl.py
 ```
 
-Do both and save output on the `logs/` folder:
+Or do both and save output on the `logs/` folder:
 
 ```bash
-$ { python3 create_tables.py; python3 etl.py; } 2>&1 | tee -a "logs/$(date +"%Y-%m-%d-%H:%M:%S").txt"
+$ sh run_all.sh
 ```
+
+### Files and folders
+
+* `create_tables.py`: script to create and drop tables and database
+* `etl.py`: main ETL script to process raw input files and insert them on the database
+* `run_all.sh`: convenience shell script to run both scripts above
+* `sql_queries.py`: SQL queries used by the other scripts
+
+* `utils/`: helper functions
+* `notebooks/`: Jupyter notebooks for exploring the data interactively
+* `logs/`: log of the ETL script executions
+* `docs/`: E-R diagram and images used on this README
+* `data/`: raw input data provided by the assignment
 
 ## Comments to the reviewer
 
-Duration
+* Since there were no requirements about this, I decided to round the duration (both in the `songs` table and in the ETL when processing the `length` attribute in the `log events`) to the second
+* Out of the 7.400 log events, I could only find the song and artist in the database (data coming from `song_data`) for 1 event. First I through my SQL query was wrong, but I guess there are almost no matches since we only have a subset of the artists and songs in `song_data`
 
 ## Graphs
 
 I have created an extra Jupyter notebook to plot some graphs (using Plotly) for this dataset.
 
-![](doc/viz1-plan.png?raw=true)
+![](docs/viz1-plan.png?raw=true)
 
-![Image of Yaktocat](doc/viz2-gender.png?raw=true)
+![](docs/viz2-gender.png?raw=true)
+
+![](docs/viz3-found.png?raw=true)
 
 ## References
 

@@ -2,6 +2,9 @@
 import time
 
 def timeit(method):
+    """
+    Python function decorator to time function execution time
+    """
     def timed(*args, **kw):
         ts = time.time()
         result = method(*args, **kw)

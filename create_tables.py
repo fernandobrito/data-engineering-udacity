@@ -4,6 +4,7 @@ from sql_queries import create_table_queries, drop_table_queries
 
 
 def create_database():
+    ''' Connects to and creates the database '''
     # connect to default database
     conn = psycopg2.connect("host=127.0.0.1 dbname=studentdb user=student password=student")
     conn.set_session(autocommit=True)
@@ -24,18 +25,21 @@ def create_database():
 
 
 def drop_tables(cur, conn):
+    ''' Runs the pre-defined queries to drop tables '''
     for query in drop_table_queries:
         cur.execute(query)
         conn.commit()
 
 
 def create_tables(cur, conn):
+    ''' Runs the pre-defined queries to create tables '''
     for query in create_table_queries:
         cur.execute(query)
         conn.commit()
 
 @timeit
 def create_tables_main():
+    ''' Entry point of the file '''
     cur, conn = create_database()
     
     drop_tables(cur, conn)
