@@ -60,7 +60,7 @@ def process_log_file(cur, filepath):
         
         # get songid and artistid from song and artist tables
         # print('trying to find', row.song, row.artist, round(row.length))
-        cur.execute(song_select, (row.song, row.artist))
+        cur.execute(song_select, (row.song, row.artist, round(row.length)))
         results = cur.fetchone()
         
         if results:

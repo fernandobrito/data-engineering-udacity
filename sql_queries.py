@@ -111,7 +111,8 @@ JOIN songs
     ON songs.artist_id = artists.artist_id
 WHERE
     TRIM(LOWER(songs.title)) = TRIM(LOWER(%s)) AND
-    TRIM(LOWER(artists.name)) = TRIM(LOWER(%s))
+    TRIM(LOWER(artists.name)) = TRIM(LOWER(%s)) AND
+    songs.duration = %s
 LIMIT 1
 """)
 
