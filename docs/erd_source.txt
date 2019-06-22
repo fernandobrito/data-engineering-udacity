@@ -23,7 +23,7 @@ Table songs {
 }
 
 Table time {
-  start_time bigint [pk]
+  start_time timestamp [pk]
   hour int [not null]
   day int [not null]
   week int [not null]
@@ -34,7 +34,7 @@ Table time {
 
 Table songplay {
   songplay_id bigserial [pk]
-  start_time bigint [not null, ref: > time.start_time]
+  start_time timestamp [not null, ref: > time.start_time]
   user_id int [not null, ref: > users.user_id]
   level varchar [not null]
   song_id varchar [ref: > songs.song_id]
