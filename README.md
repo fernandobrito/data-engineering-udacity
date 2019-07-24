@@ -46,8 +46,8 @@ Contact me on [Linkedin](https://www.linkedin.com/in/fernandosmbrito), or open a
 Install all necessary modules to run the current project:
 
 ```bash
-$ git clone https://github.com/fernandobrito/reactnd-project-flashcards
-$ cd reactnd-project-flashcards/
+$ git clone https://github.com/fernandobrito/data-engineering-udacity
+$ cd data-engineering-udacity
 $ pip3 install -r requirements.txt
 ```
 
