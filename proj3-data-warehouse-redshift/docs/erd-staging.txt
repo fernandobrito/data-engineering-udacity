@@ -1,0 +1,34 @@
+Table "staging_events" {
+  "artist" varchar
+  "auth" varchar
+  "first_name" varchar
+  "gender" varchar(1)
+  "item_in_session" varchar
+  "last_name" varchar
+  "length" varchar
+  "level" varchar(10)
+  "location" varchar
+  "method" varchar(10)
+  "page" varchar(30)
+  "registration" varchar
+  "session_id" varchar
+  "song" varchar
+  "status" varchar
+  "ts" varchar
+  "useragent" varchar
+  "user_id" varchar
+}
+
+Table "staging_songs" {
+  "num_songs" varchar
+  "artist_id" varchar
+  "artist_latitude" varchar
+  "artist_longitude" varchar
+  "artist_location" varchar
+  "artist_name" varchar
+  "song_id" varchar
+  "title" varchar
+  "duration" varchar
+  "year" varchar
+}
+
