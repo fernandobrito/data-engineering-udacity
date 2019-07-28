@@ -89,6 +89,10 @@ $ sh run_all.sh
 * Out of the 7.400 log events, I could only find the song and artist in the database (data coming from `song_data`) for 1 event. First I through my SQL query was wrong, but I guess there are almost no matches since we only have a subset of the artists and songs in `song_data`
 * I tried using the `COPY` command to do a bulk insert, but it doesn't support `ON CONFLICT`. One option would be to create a temporary table on the database and then use it to upsert rows into my main table, but I ran out of time for this assignment
 
+## Data model
+
+![](docs/erd.png?raw=true)
+
 ## Graphs
 
 I have created an extra Jupyter notebook to plot some graphs (using Plotly) for this dataset.
